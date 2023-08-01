@@ -284,7 +284,7 @@ fn pvs(pos: &Position, eng: &mut Engine, mut alpha: i32, mut beta: i32, mut dept
     let improving = eng.ply > 1 && eval > eng.plied[eng.ply as usize - 2].1;
 
     // pruning
-    if !pv_node && !pos.check && beta.abs() < Score::MATE {
+    if !pv_node && !pos.check && beta.abs() < 700 {
         // reverse futility pruning
         if depth <= 8 && eval >= beta + 120 * depth / if improving {2} else {1} { return eval }
 
